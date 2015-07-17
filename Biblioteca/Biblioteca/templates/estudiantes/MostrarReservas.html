@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Lista</title>
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/consultalibros.css">
+</head>
+<body>
+<h3>Lista de Libros Prestados en la Biblioteca</h3>
+{% for reserva in reservas %}
+	{% for libro in libros %}
+		{% if reserva.Libro_id == libro.id %}
+		<div id="datos">
+			<li><b>Estudiante:</b>{{reserva.nombre}} </li>
+			<li><b>Establesimiento:</b> {{reserva.establecimiento}}</li>
+			<li><b>Ci:</b>{{reserva.ci}} </li>
+			<!--{{MEDIA_URL}}{{autor.foto}} estamos cargando las imagenes que esta en esta ruta-->
+			<li> <b>Cod Libro:</b>{{libro.nombre}} </li>
+			<li><b>Libro:</b><img src="{{MEDIA_URL}}{{libro.portadas}}"> {{reserva.Libro_id}}</li><br>
+		</div>
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+</body>
+</html>

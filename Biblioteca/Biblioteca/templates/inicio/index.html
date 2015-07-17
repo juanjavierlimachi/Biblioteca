@@ -1,0 +1,31 @@
+
+{% extends "index.html" %}
+	{% block contens %}
+		<style type="text/css">
+#cat{
+	display: none;
+}
+#loguin{
+	width: 70%;
+	margin: auto;
+	border: 1px solid white;
+	margin-top: 20px;
+}
+#btn{
+	width: 163px;
+	float: left;
+	margin-left: 135px;
+}
+
+</style>
+<div id="loguin">
+	<h4>Ingresar</h4>
+	<form id="login" method="POST" action="">{% csrf_token %}
+		<table>{{formulario}}</table>
+		<input type="submit" value="Ingresar" id='btn'><br><br>
+<a href="/registrarse/">Registrarse</a>
+
+	</form>
+</div>
+	{% endblock%}
+

@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block contens %}
+<style type="text/css">
+#cat{
+	display: none;
+}
+#nuevoUser{
+	width: 70%;
+	margin: auto;
+	border: 1px solid white;
+	margin-top: 20px;
+}
+#btn{
+	width: 174px;margin-left: 188px;
+}
+</style>
+<div id="nuevoUser">
+	<h3>Nuevo Usuario</h3>
+	<form id="UserForm" method='POST' action=''> {% csrf_token %}
+	<table>{{form}}</table>
+	<input type="submit" value="Registrar" id='btn'>
+	</form>
+	{% if sms %}
+	<h5>Registro exitoso</h5>
+	{% endif %}
+{% endblock %}
+</div>

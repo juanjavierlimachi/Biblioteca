@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+	{% block contenido %}
+	<h3>Complete sus Datos</h3>
+<div id="reservas">
+	<form method="POST" action="">{% csrf_token %}
+		<table>
+			{{form}}
+		</table>
+		<input type="submit" value="Reservar">
+	</form>
+</div>
+	{% endblock%}
+</body>
+</html>

@@ -1,0 +1,40 @@
+{%  extends "base.html" %}
+
+{% block contenido %}
+	<select>
+		<option>Elige un Autor</option>
+		{% for autor in autores %}
+			<option value="{{autor.id}}">{{autor.nombre}}</option>
+		{% endfor %}
+	</select>	
+
+	<div id="datos">
+
+	</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+	$('select').on('change',inicio);
+
+	function inicio(){
+		var id = $(this).val();
+		
+		//console.log(id); aki vemos k el id se esta inprimiendo
+		$.ajax({
+			data:{'id':id},
+			url:'/busqueda_ajax/',
+			type: 'get',
+			success: function(data){
+				console.log(data);
+				var html=""
+				for(var i = 0; i<data.length; i++){
+					html += '<ul><li>'+data[i].fields.nombre+'</li><li>'+data[i].fields.resumen+'</li></ul>'
+				}
+				$('#datos').html(html);
+			}
+		});
+	}
+</script>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block contenido %}
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/consultalibros.css">
+	<h3>Consulta de libros</h3>
+	{% for libro in libros %}
+	<div id="datos">
+		<li><b>Nombre</b>{{libro.nombre}}</li>
+		<li><b>Resumen</b>{{libro.resumen}}</li>
+
+		<li><b>Portadas</b> <img src="{{MEDIA_URL}}{{libro.portadas}}"></li>
+		<a href="/reservar/{{libro.id}}">Reservar Libro</a>
+	</div>
+	{% endfor %}
+{% endblock %}

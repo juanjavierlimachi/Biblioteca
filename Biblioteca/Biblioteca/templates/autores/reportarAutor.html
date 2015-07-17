@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block contenido %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/consultalibros.css">
+<h3>Autores</h3>
+	{% for autor in autores %}
+	<div id="datos">
+		<li><b>Nombre</b>{{autor.nombre}} </li>
+		<li><b>Pais</b> {{autor.pais}}</li>
+		<li><b>descripcion</b>{{autor.descripcion}} </li>
+		<!--{{MEDIA_URL}}{{autor.foto}} estamos cargando las imagenes que esta en esta ruta-->
+		<li><b>Foto</b><img src="{{MEDIA_URL}}{{autor.foto}}"> </li><br>
+	</div>
+	{% endfor %}
+</ul>
+{% endblock %}

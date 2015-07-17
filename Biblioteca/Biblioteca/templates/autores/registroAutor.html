@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+	
+	<!-- <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/style.css">
+ -->
+ <style type="text/css">
+ h3{
+ 	text-align: center;
+ }
+ #autores{
+ 	width: 30%;
+ 	margin: auto;
+ 	height: 70px;
+ 	background-color: red;
+ 	border:1px solid #045;
+ }
+ #autores form {
+ 	background-color: green;
+ 	width: 50%;
+ 	height: 100%;
+ }
+#autores form label{
+	width: 100px;
+	margin-left: 100px;
+	display: inline-block;
+}
+table #id_descripcion{
+	width: 100%;
+	height: 50px;
+	background-color: red;
+}
+ </style>
+{% block contenido %}
+<div id="autores">
+<h3>Regitrar Autor</h3>
+	<form method='POST' enctype='multipart/form-data'>{% csrf_token %}
+		<table>{{form}}</table>
+		<input type="submit" value='Registrar'>
+	</form>
+	</div>
+{% endblock %}
